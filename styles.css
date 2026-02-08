@@ -1,23 +1,30 @@
 :root{
-  --bg-dark: hsl(144 100% 1%);
-  --bg: hsl(145 100% 3%);
-  --bg-light: hsl(151 81% 6%);
-  --text: hsl(147 100% 89%);
-  --text-muted: hsl(147 33% 64%);
-  --highlight: hsl(150 37% 33%);
-  --border: hsl(154 62% 21%);
-  --border-muted: hsl(158 100% 8%);
-  --primary: hsl(149 41% 62%);
-  --secondary: hsl(320 50% 73%);
-  --danger: hsl(9 42% 65%);
-  --warning: hsl(51 29% 53%);
-  --success: hsl(148 27% 56%);
-  --info: hsl(217 46% 66%);
+  --bg-dark: hsl(137 100% 0%);
+  --bg: hsl(135 100% 1%);
+  --bg-light: hsl(135 100% 3%);
+  --text: hsl(129 100% 89%);
+  --text-muted: hsl(130 35% 64%);
+  --highlight: hsl(141 100% 13%);
+  --border: hsl(133 100% 7%);
+  --border-muted: hsl(132 100% 3%);
+  --primary: hsl(140 65% 50%);
+  --secondary: hsl(303 84% 72%);
+  --danger: hsl(7 100% 66%);
+  --warning: hsl(53 100% 21%);
+  --success: hsl(162 100% 22%);
+  --info: hsl(217 100% 70%);
 }
 
 body {
   background: var(--bg-dark);
   color: var(--text-muted);
+}
+
+button {
+  background: var(--text);
+  color: var(--bg-dark);
+  border: None;
+  border-radius: 0.5rem;
 }
 
 
