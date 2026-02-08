@@ -1,0 +1,23 @@
+:root{
+  --bg-dark: hsl(144 100% 1%);
+  --bg: hsl(145 100% 3%);
+  --bg-light: hsl(151 81% 6%);
+  --text: hsl(147 100% 89%);
+  --text-muted: hsl(147 33% 64%);
+  --highlight: hsl(150 37% 33%);
+  --border: hsl(154 62% 21%);
+  --border-muted: hsl(158 100% 8%);
+  --primary: hsl(149 41% 62%);
+  --secondary: hsl(320 50% 73%);
+  --danger: hsl(9 42% 65%);
+  --warning: hsl(51 29% 53%);
+  --success: hsl(148 27% 56%);
+  --info: hsl(217 46% 66%);
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-muted);
+}
+
+
