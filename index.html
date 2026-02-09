@@ -3,48 +3,31 @@
 <head>
   <title>Settings Editor</title>
   <link rel="stylesheet" href="styles.css">
-  <script>
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-  </script>
+  <script src="script.js"></script>
 </head>
 
 <body id="body">
 
-<div class="tab">
-  <button class="tablinks" id="button" onclick="openTab(event, 'Subjects')">Subjects</button>
-  <button class="tablinks" id="button" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
-  <button class="tablinks" id="button" onclick="openTab(event, 'Timetable')">Timetable</button>
-</div>
+  <div id="headerbar" class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Subjects')">Subjects</button>
+    <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
+    <button class="tablinks" onclick="openTab(event, 'Timetable')">Timetable</button>
+  </div>
 
-<div id="Subjects" class="tabcontent">
-  <h3>Subjects</h3>
-  <p>Choose subjects here!</p>
-</div>
+  <div id="Subjects" class="tabcontent">
+    <h3>Subjects</h3>
+    <p>Choose subjects here!</p>
+  </div>
 
-<div id="Lesson Colours" class="tabcontent">
-  <h3>Lesson Colours</h3>
-  <p>Edit the colours of lessons</p>
-</div>
+  <div id="Lesson Colours" class="tabcontent">
+    <h3>Lesson Colours</h3>
+    <p>Edit the colours of lessons</p>
+  </div>
 
-<div id="Timetable" class="tabcontent">
-  <h3>Timetable</h3>
-  <p>Make timetable here!</p>
-</div>
+  <div id="Timetable" class="tabcontent">
+    <h3>Timetable</h3>
+    <p>Make timetable here!</p>
+  </div>
 
 </body>
 </html>
