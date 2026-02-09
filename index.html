@@ -1,75 +1,33 @@
-:root{
-  --bg-dark: #0a0a0a;
-  --bg: #1a1a1a;
-  --bg-light: #2a2a2a;
-  --text: #ffffff;
-  --text-muted: #eeeeee;
-  --highlight: #00ff00;
-  --acc: #008000;
-}
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <title>Settings Editor</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
 
-* {box-sizing: border-box}
+<body id="body">
 
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif
-}
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Subjects')">Subjects</button>
+    <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
+    <button class="tablinks" onclick="openTab(event, 'Timetable')">Timetable</button>
+  </div>
 
-body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: var(--bg-dark);
-  color: var(--text-muted);
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-}
+  <div id="Subjects" class="tabcontent">
+    <h3>Subjects</h3>
+    <p>Choose subjects here!</p>
+  </div>
 
-.tab button {
-  display: block;
-  background-color: var(--bg);
-  color: var(--text-muted);
-  font-size: 1rem;
-  padding: 22px 16px;
-  width: 100%;
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.3s;
-}
+  <div id="Lesson Colours" class="tabcontent">
+    <h3>Lesson Colours</h3>
+    <p>Edit the colours of lessons</p>
+  </div>
 
-.tab button:hover {
-  background-color: var(--bg-light);
-  color: var(--text);
-}
+  <div id="Timetable" class="tabcontent">
+    <h3>Timetable</h3>
+    <p>Make timetable here!</p>
+  </div>
 
-.tab button.active {
-  background-color: var(--acc);
-}
-
-.tab {
-  border-right: 1px solid var(--bg-light);
-  background-color: var(--bg);
-  width: 10%;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.tabcontent {
-  flex-grow: 1;
-  display: none;
-  padding: 0px 12px;
-  width: 90%;
-  height: 100%;
-  border: None;
-  overflow-y: auto;
-}
-
-.tabcontent[style*="display: block"] {
-  display: block !important;
-}
+</body>
+</html>
