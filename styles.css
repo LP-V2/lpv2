@@ -1,30 +1,70 @@
 :root{
-  --bg-dark: hsl(137 100% 0%);
-  --bg: hsl(135 100% 1%);
-  --bg-light: hsl(135 100% 3%);
-  --text: hsl(129 100% 89%);
-  --text-muted: hsl(130 35% 64%);
-  --highlight: hsl(141 100% 13%);
-  --border: hsl(133 100% 7%);
-  --border-muted: hsl(132 100% 3%);
-  --primary: hsl(140 65% 50%);
-  --secondary: hsl(303 84% 72%);
-  --danger: hsl(7 100% 66%);
-  --warning: hsl(53 100% 21%);
-  --success: hsl(162 100% 22%);
-  --info: hsl(217 100% 70%);
+  --bg-dark: #0a0a0a;
+  --bg: #1a1a1a;
+  --bg-light: #2a2a2a;
+  --text: #ffffff;
+  --text-muted: #eeeeee;
+  --highlight: #00ff00;
+  --acc: #008000;
+}
+
+* {box-sizing: border-box}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   background: var(--bg-dark);
   color: var(--text-muted);
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-button {
-  background: var(--text);
-  color: var(--bg-dark);
-  border: None;
-  border-radius: 0.5rem;
+.tab button {
+  display: block;
+  background-color: var(--bg);
+  color: var(--text-muted);
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+.tab button:hover {
+  background-color: var(--bg-light);
+  color: var(--text);
+}
 
+.tab button.active {
+  background-color: var(--acc);
+}
+
+.tab {
+  float: left;
+  border: 1px solid var(--bg-light);
+  background-color: var(--bg);
+  width: 30%;
+  height: 300px;
+}
+
+.tabcontent {
+  flex-grow: 1;
+  display: none;
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid var(--bg-light);
+  width: 70%;
+  border-left: none;
+  height: 300px;
+}
