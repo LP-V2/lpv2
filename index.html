@@ -2,7 +2,6 @@
 <html lang="en-UK">
 <head>
   <title>Settings Editor</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js"></script>
 </head>
@@ -10,14 +9,27 @@
 <body id="body">
 
   <div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'Subjects')">Subjects</button>
+    <button class="tablinks" onclick="openTab(event, 'Subjects')" id="defaultOpen">Subjects</button>
     <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
     <button class="tablinks" onclick="openTab(event, 'Timetable')">Timetable</button>
   </div>
-
+  
   <div id="Subjects" class="tabcontent">
     <h3>Subjects</h3>
-    <p>Choose subjects here!</p>
+    <div class="container">
+      <form>
+        <h4>School Level</h4>
+        <input type="radio" id="gcse" name="school_level" value="GCSE" onchange="updateSubjects()">
+        <label for="gcse">GCSE</label><br>
+        <input type="radio" id="alevel" name="school_level" value="A Level" onchange="updateSubjects()">
+        <label for="alevel">A Level</label><br>
+      </form>
+    </div>
+    <div class="container" id="subjectContainer" style="display: none;">
+      <div class="counter" id="status">Selected: 0 / 4</div>
+      <div class="subject-list" id="subjectList"></div>
+      <button class="submit-btn" id="submitBtn" disabled>Confirm Selections</button>
+    </div>
   </div>
 
   <div id="Lesson Colours" class="tabcontent">
@@ -28,6 +40,15 @@
   <div id="Timetable" class="tabcontent">
     <h3>Timetable</h3>
     <p>Make timetable here!</p>
+    <table>
+      <tr>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </table>
   </div>
 
 </body>
