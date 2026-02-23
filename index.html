@@ -35,21 +35,47 @@
 
   <div id="Lesson Colours" class="tabcontent">
     <h3>Lesson Colours</h3>
-    <p>Edit the colours of lessons</p>
+    <div class="container">
+      <div id="colourList" class="subject-list">
+        </div>
+    </div>
   </div>
 
   <div id="Timetable" class="tabcontent">
     <h3>Timetable</h3>
-    <p>Make timetable here!</p>
-    <table>
-      <tr>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-      </tr>
-    </table>
+    <div class="container" style="width: 100%; max-width: 900px; margin-bottom: 20px;">
+      <h4>Week A</h4>
+      <table id="timetable-table-a">
+        <thead>
+          <tr>
+            <th>Day / Period</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+          </tr>
+        </thead>
+        <tbody id="timetableBodyA"></tbody>
+      </table>
+    </div>
+
+    <div class="container" style="width: 100%; max-width: 900px;">
+      <h4>Week B</h4>
+      <table id="timetable-table-b">
+        <thead>
+          <tr>
+            <th>Day / Period</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+          </tr>
+        </thead>
+        <tbody id="timetableBodyB"></tbody>
+      </table>
+    </div>
   </div>
 
 </body>
