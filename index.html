@@ -8,73 +8,101 @@
 </head>
 
 <body id="body">
-
-  <div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'Subjects')" id="defaultOpen">Subjects</button>
-    <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
-    <button class="tablinks" onclick="openTab(event, 'Timetable')">Timetable</button>
+  <div class="header">
+    <div class="header-left">
+      <img src="favicon.png" alt="Logo" class="header-logo">
+      <h2>Lesson Progress Counter 2</h2>
+    </div>
+    <div class="header-right">
+      <span>A Project by Toby Smith</span>
+    </div>
   </div>
   
-  <div id="Subjects" class="tabcontent">
-    <h3>Subjects</h3>
-    <div class="container">
-      <form>
-        <h4>School Level</h4>
-        <input type="radio" id="gcse" name="school_level" value="GCSE" onchange="updateSubjects()">
-        <label for="gcse">GCSE</label><br>
-        <input type="radio" id="alevel" name="school_level" value="A Level" onchange="updateSubjects()">
-        <label for="alevel">A Level</label><br>
-      </form>
+  <div class="main-wrapper">
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Subjects')" id="defaultOpen">Subjects</button>
+      <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
+      <button class="tablinks" onclick="openTab(event, 'Timetable')">Timetable</button>
+      <button class="tablinks" onclick="openTab(event, 'Music Lessons')">Music Lessons</button>
+      <button class="tablinks" onclick="openTab(event, 'Download')">Download</button>
     </div>
-    <div class="container" id="subjectContainer" style="display: none;">
-      <div class="counter" id="status">Selected: 0 / 4</div>
-      <div class="subject-list" id="subjectList"></div>
-      <button class="submit-btn" id="submitBtn" disabled>Confirm Selections</button>
-    </div>
-  </div>
-
-  <div id="Lesson Colours" class="tabcontent">
-    <h3>Lesson Colours</h3>
-    <div class="container">
-      <div id="colourList" class="subject-list">
-        </div>
-    </div>
-  </div>
-
-  <div id="Timetable" class="tabcontent">
-    <h3>Timetable</h3>
-    <div class="container" style="width: 100%; max-width: 900px; margin-bottom: 20px;">
-      <h4>Week A</h4>
-      <table id="timetable-table-a">
-        <thead>
-          <tr>
-            <th>Day / Period</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-          </tr>
-        </thead>
-        <tbody id="timetableBodyA"></tbody>
-      </table>
+    
+    <div id="Subjects" class="tabcontent">
+      <h3>Subjects</h3>
+      <div class="container">
+        <form>
+          <h4>School Level</h4>
+          <input type="radio" id="gcse" name="school_level" value="GCSE" onchange="updateSubjects()">
+          <label for="gcse">GCSE</label><br>
+          <input type="radio" id="alevel" name="school_level" value="A Level" onchange="updateSubjects()">
+          <label for="alevel">A Level</label><br>
+        </form>
+      </div>
+      <div class="container" id="subjectContainer" style="display: none;">
+        <div class="counter" id="status">Selected: 0 / 4</div>
+        <div class="subject-list" id="subjectList"></div>
+        <button class="submit-btn" id="submitBtn" disabled>Confirm Selections</button>
+      </div>
     </div>
 
-    <div class="container" style="width: 100%; max-width: 900px;">
-      <h4>Week B</h4>
-      <table id="timetable-table-b">
-        <thead>
-          <tr>
-            <th>Day / Period</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-          </tr>
-        </thead>
-        <tbody id="timetableBodyB"></tbody>
-      </table>
+    <div id="Lesson Colours" class="tabcontent">
+      <h3>Lesson Colours</h3>
+      <div class="container">
+        <div id="colourList" class="subject-list">
+          </div>
+      </div>
+    </div>
+
+    <div id="Timetable" class="tabcontent">
+      <h3>Timetable</h3>
+      <div class="container" style="width: 100%; max-width: 900px; margin-bottom: 20px;">
+        <h4>Week A</h4>
+        <table id="timetable-table-a">
+          <thead>
+            <tr>
+              <th>Day / Period</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody id="timetableBodyA"></tbody>
+        </table>
+      </div>
+
+      <div class="container" style="width: 100%; max-width: 900px;">
+        <h4>Week B</h4>
+        <table id="timetable-table-b">
+          <thead>
+            <tr>
+              <th>Day / Period</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody id="timetableBodyB"></tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div id="Music Lessons" class="tabcontent">
+      <h3>Music Lessons</h3>
+      <div class="container">
+        <h4>Instruments</h4>
+        <p>Type in instruments...</p>
+    
+    <div id="Download" class="tabcontent">
+      <h3>Download Files</h3>
+      <div class="container">
+        <h4>Instructions</h4>
+        <p>Create a folder in which to store the files.<br>Inside this folder, create three sub-folders: IMAGES, NOTES and SOUNDS.<br>Download all files below.<br></p>
+        <p>Move all .png and .ico files into IMAGES.<br>Move all .wav files into SOUNDS.<br>The .py and .json files should remain in the main folder.<br></p>
+      </div>
     </div>
   </div>
 
