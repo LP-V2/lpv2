@@ -136,10 +136,77 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  box-shadow: 0 2px 0 0 var(--bg-light);
 }
 .submit-btn:disabled { 
   background-color: var(--bg-light);
   color: var(--text-muted);
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: var(--bg-light);
+  color: var(--text);
+}
+
+th, td {
+  border: 1px solid var(--bg-dark);
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--bg-light);
+  color: var(--text);
+}
+
+td {
+  color: var(--text-muted);
+}
+
+.timetable-select {
+  background: var(--bg-dark);
+  color: var(--text);
+  border: 1px solid var(--acc);
+  padding: 5px;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.timetable-select:focus {
+  outline: 1px solid var(--highlight);
+}
+
+.timetable-input {
+  background: var(--bg-dark);
+  color: var(--text);
+  border: 1px solid var(--bg-light);
+  padding: 4px;
+  margin-top: 4px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.timetable-input:focus {
+  border-color: var(--highlight);
+  outline: none;
+}
+
+input[type="color"] {
+  border: none;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  background: none;
 }
