@@ -1,6 +1,6 @@
 const subjectsData = {
     'GCSE': ['French', 'Spanish', 'German', 'Mandarin', 'Geography', 'History', 'Computer Science', 'Music', 'Drama', 'Art', 'Latin', 'Sports Studies', 'Business'],
-    'A Level': ['Maths', 'Further Maths', 'Physics', 'Music', 'German', 'French', 'Psychology', 'History', 'Geography', 'Economics', 'English', 'Art']
+    'A Level': ['Maths', 'Further Maths', 'Physics', 'Chemistry', 'Biology', 'Music', 'German', 'French', 'Psychology', 'History', 'Geography', 'Economics', 'English', 'Art']
 };
 
 let selectedSubjects = [];
@@ -79,7 +79,7 @@ function generateTimetable(targetId) {
 
             const teacherInput = document.createElement('input');
             teacherInput.type = 'text';
-            teacherInput.placeholder = 'TCH';
+            teacherInput.placeholder = 'Teacher';
             teacherInput.maxLength = 3;
             teacherInput.className = 'timetable-input';
 
@@ -158,24 +158,52 @@ function updateSubjects() {
     container.style.flexDirection = 'column';
     list.innerHTML = '';
     
-    subjectsData[selectedLevel].forEach(subject => {
+    let subjectsToShow = [...subjectsData[selectedLevel]];
+    if (selectedLevel === 'A Level') {
+        subjectsToShow.push('EPQ');
+    }
+
+    subjectsToShow.forEach(subject => {
         const div = document.createElement('div');
         div.className = 'subject-item';
         div.innerHTML = `<input type="checkbox" name="subj" value="${subject}" id="${subject}"><label for="${subject}">${subject}</label>`;
         list.appendChild(div);
+        
         const checkbox = div.querySelector('input');
         checkbox.addEventListener('change', () => {
-            const checkedCount = list.querySelectorAll('input:checked').length;
+            const checkedCheckboxes = list.querySelectorAll('input:checked');
+            const checkedValues = Array.from(checkedCheckboxes).map(c => c.value);
+            const checkedCount = checkedCheckboxes.length;
             const statusBar = document.getElementById('status');
             const submitBtn = document.getElementById('submitBtn');
-            const targetCount = (selectedLevel === 'GCSE') ? 4 : 3;
-            if (checkedCount > targetCount) {
-                checkbox.checked = false;
-                alert(`You can only pick ${targetCount} subjects.`);
-            } else {
-                if(statusBar) statusBar.textContent = `Selected: ${list.querySelectorAll('input:checked').length} / ${targetCount}`;
-                if(submitBtn) {
-                    submitBtn.disabled = (list.querySelectorAll('input:checked').length !== targetCount);
+
+            if (selectedLevel === 'GCSE') {
+                if (checkedCount > 4) {
+                    checkbox.checked = false;
+                    alert("You can only pick 4 subjects at GCSE.");
+                }
+            } else if (selectedLevel === 'A Level') {
+                const hasFurtherMaths = checkedValues.includes('Further Maths');
+                const hasEPQ = checkedValues.includes('EPQ');
+                
+                if (checkedCount === 4 && !hasFurtherMaths && !hasEPQ) {
+                    checkbox.checked = false;
+                    alert("To take 4 A-Levels, one must be Further Maths, or you must take an EPQ.");
+                } else if (checkedCount > 4) {
+                    checkbox.checked = false;
+                    alert("You cannot select more than 4 subjects.");
+                }
+            }
+
+            const finalCount = list.querySelectorAll('input:checked').length;
+            const targetCount = (selectedLevel === 'GCSE') ? 4 : 3; 
+            
+            if(statusBar) statusBar.textContent = `Selected: ${finalCount}`;
+            if(submitBtn) {
+                if (selectedLevel === 'GCSE') {
+                    submitBtn.disabled = (finalCount !== 4);
+                } else {
+                    submitBtn.disabled = (finalCount < 3);
                 }
             }
         });
