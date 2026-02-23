@@ -1,9 +1,10 @@
 const subjectsData = {
-    'GCSE': ['French', 'Spanish', 'German', 'Mandarin', 'Geography', 'History', 'Computer Science', 'Music', 'Drama', 'Latin', 'Sports Studies', 'Business'],
-    'A Level': ['Maths', 'Further Maths', 'Physics', 'Music', 'German', 'French']
+    'GCSE': ['French', 'Spanish', 'German', 'Mandarin', 'Geography', 'History', 'Computer Science', 'Music', 'Drama', 'Art', 'Latin', 'Sports Studies', 'Business'],
+    'A Level': ['Maths', 'Further Maths', 'Physics', 'Music', 'German', 'French', 'Psychology', 'History', 'Geography', 'Economics', 'English', 'Art']
 };
 
 let selectedSubjects = [];
+let subjectDetails = {};
 
 const updateSelectedArray = () => {
     const list = document.getElementById('subjectList');
@@ -28,12 +29,9 @@ function getMandatorySubjects() {
 function updateColourPreferences() {
     const colourList = document.getElementById('colourList');
     if (!colourList) return;
-    
     const mandatory = getMandatorySubjects();
     const allSubjects = [...new Set([...mandatory, ...selectedSubjects])];
-    
     colourList.innerHTML = '';
-    
     allSubjects.forEach(subj => {
         const div = document.createElement('div');
         div.className = 'subject-item';
@@ -67,7 +65,6 @@ function generateTimetable(targetId) {
             select.innerHTML = `<option value="">Free</option>`;
             
             const combinedSubjects = [...selectedSubjects, ...mandatory];
-
             combinedSubjects.forEach(subj => {
                 const opt = document.createElement('option');
                 opt.value = subj;
@@ -86,12 +83,49 @@ function generateTimetable(targetId) {
             teacherInput.maxLength = 3;
             teacherInput.className = 'timetable-input';
 
+            select.addEventListener('change', () => {
+                const val = select.value;
+                if (val && subjectDetails[val]) {
+                    if (!roomInput.value) roomInput.value = subjectDetails[val].room || '';
+                    if (!teacherInput.value) teacherInput.value = subjectDetails[val].teacher || '';
+                }
+            });
+
+            const updateData = () => {
+                const val = select.value;
+                if (val) {
+                    subjectDetails[val] = {
+                        room: roomInput.value,
+                        teacher: teacherInput.value
+                    };
+                    autoFillBlankCells(val);
+                }
+            };
+
+            roomInput.addEventListener('input', updateData);
+            teacherInput.addEventListener('input', updateData);
+
             td.appendChild(select);
             td.appendChild(roomInput);
             td.appendChild(teacherInput);
             row.appendChild(td);
         }
         tbody.appendChild(row);
+    });
+}
+
+function autoFillBlankCells(subjectName) {
+    const allSelects = document.querySelectorAll('.timetable-select');
+    allSelects.forEach(select => {
+        if (select.value === subjectName) {
+            const td = select.parentElement;
+            const inputs = td.querySelectorAll('.timetable-input');
+            const roomIn = inputs[0];
+            const techIn = inputs[1];
+
+            if (!roomIn.value) roomIn.value = subjectDetails[subjectName].room;
+            if (!techIn.value) techIn.value = subjectDetails[subjectName].teacher;
+        }
     });
 }
 
