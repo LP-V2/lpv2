@@ -94,16 +94,43 @@
       <h3>Music Lessons</h3>
       <div class="container">
         <h4>Instruments</h4>
-        <p>Type in instruments...</p>
+        <p>Type in your instruments (Max 2):</p>
+        <div id="instrumentContainer">
+          <div class="instrument-entry">
+            <input type="text" class="timetable-input instrument-input" placeholder="e.g. Viola">
+          </div>
+        </div>
+        <button type="button" class="submit-btn" id="addInstrumentBtn" style="margin-top: 10px; background-color: var(--bg-light);">+ Add Another Instrument</button>
+        <button type="button" class="submit-btn" id="saveMusicBtn">Save Music Lessons</button>
       </div>
     </div>
     
     <div id="Download" class="tabcontent">
       <h3>Download Files</h3>
-      <div class="container">
-        <h4>Instructions</h4>
-        <p>Create a folder in which to store the files.<br>Inside this folder, create three sub-folders: IMAGES, NOTES and SOUNDS.<br>Download all files below.<br></p>
-        <p>Move all .png and .ico files into IMAGES.<br>Move all .wav files into SOUNDS.<br>The .py and .json files should remain in the main folder.<br></p>
+      <div class="container" style="width: 100%; max-width: 900px;">
+        <h4>Main Application</h4>
+        <div class="download-grid">
+          <a href="LPV2.py" download class="submit-btn download-link">Download LPV2.py</a>
+        </div>
+
+        <h4>Images</h4>
+        <div class="download-grid">
+          <a href="periodic_table.png" download class="submit-btn download-link">periodic_table.png</a>
+          <a href="lp_logo.ico" download class="submit-btn download-link">lp_logo.ico</a>
+          <a href="world_map.png" download class="submit-btn download-link">world_map.png</a>
+        </div>
+
+        <h4>Sounds</h4>
+        <div class="download-grid">
+          <a href="start_sound.wav" download class="submit-btn download-link">start_sound.wav</a>
+          <a href="toast_sound.wav" download class="submit-btn download-link">toast_sound.wav</a>
+          <a href="end_sound.wav" download class="submit-btn download-link">end_sound.wav</a>
+        </div>
+        
+        <h4>Settings</h4>
+        <div class="download-grid">
+          <button type="button" class="submit-btn" id="saveSettingsBtn">Save settings.json</button>
+        </div>
       </div>
     </div>
   </div>
