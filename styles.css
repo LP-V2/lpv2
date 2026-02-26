@@ -6,6 +6,8 @@
   --text-muted: #eeeeee;
   --highlight: #00ff00;
   --acc: #008000;
+  --cancel: #ff4444;
+  --cancel-hover: #cc0000;
 }
 
 * {box-sizing: border-box}
@@ -176,7 +178,7 @@ body {
   width: 100%;
   padding: 12px;
   background-color: var(--acc);
-  color: white;
+  color: var(--text);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -248,10 +250,59 @@ td {
   outline: none;
 }
 
+#Timetable .container:last-of-type {
+    margin-bottom: 50px !important;
+}
+
 input[type="color"] {
   border: none;
   width: 40px;
   height: 30px;
   cursor: pointer;
   background: none;
+}
+
+.instrument-entry {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.instrument-input {
+  flex-grow: 1;
+  font-size: 1.2rem !important;
+  padding: 12px 15px !important;
+  border: 2px solid var(--bg-light) !important;
+  min-width: 0;
+}
+
+.instrument-input:focus {
+  border-color: var(--highlight) !important;
+  outline: none;
+}
+
+.remove-btn {
+  background-color: var(--cancel);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  background-color: var(--cancel-hover);
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
 }
