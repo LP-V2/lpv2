@@ -3,6 +3,17 @@ const subjectsData = {
     'A Level': ['Maths', 'Further Maths', 'Physics', 'Chemistry', 'Biology', 'Music', 'German', 'French', 'Psychology', 'History', 'Geography', 'Economics', 'English', 'Art']
 };
 
+const defaultThemes = [
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#FFFFFF", "h": "#28a745", "txt": "#FFFFFF", "err": "#4a0a0a", "trough": "#FFFFFF", "tf": "Systemfixed", "size": 12, "mod": "bold", "bar": 0, "transparent": 0, "barTxt": 0}, 
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#FFFFFF", "h": "#28a745", "txt": "#FFFFFF", "err": "#4a0a0a", "trough": "#0A0A0A", "tf": "Systemfixed", "size": 12, "mod": "bold", "bar": 1, "transparent": 0, "barTxt": 0}, 
+    {"bg": "#FFFFFF", "bgh": "#D6D6D6", "acc": "#000000", "h": "#28a745", "txt": "#000000", "err": "#b52b2b", "trough": "#FFFFFF", "tf": "Systemfixed", "size": 12, "mod": "bold", "bar": 1, "transparent": 0, "barTxt": 0}, 
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#FFFFFF", "h": "#28a745", "txt": "#FFFFFF", "err": "#4A0A0A", "trough": "#FFFFFF", "tf": "Systemfixed", "size": 12, "mod": "bold", "bar": 0, "transparent": 1, "barTxt": 0}, 
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#FFFFFF", "h": "#28a745", "txt": "#FFFFFF", "err": "#4a0a0a", "trough": "#0A0A0A", "tf": "Arial", "size": 12, "mod": "bold", "bar": 1, "transparent": 1, "barTxt": 0}, 
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#7F85F5", "h": "#28a745", "txt": "#FFFFFF", "err": "#4a0a0a", "trough": "#0A0A0A", "tf": "Ubuntu Mono", "size": "12", "mod": "bold", "bar": 1, "transparent": 0, "barTxt": 1}, 
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#FFA500", "h": "#28a745", "txt": "#FFFFFF", "err": "#4a0a0a", "trough": "#0A0A0A", "tf": "Arial Rounded MT Bold", "size": 10, "mod": "bold", "bar": 1, "transparent": 0, "barTxt": 1}, 
+    {"bg": "#123456", "bgh": "#1b4e80", "acc": "#FFFFFF", "h": "#28a745", "txt": "#FFFFFF", "err": "#4A0A0A", "trough": "#FFFFFF", "tf": "Segoe UI", "size": 12, "mod": "bold", "bar": 1, "transparent": 0, "barTxt": 0}, 
+    {"bg": "#0A0A0A", "bgh": "#1A1A1A", "acc": "#FFFFFF", "h": "#28a745", "txt": "#FFFFFF", "err": "#4A0A0A", "trough": "#FFFFFF", "tf": "Systemfixed", "size": 12, "mod": "bold", "bar": 2, "transparent": 0, "barTxt": 0}]
+
 let selectedSubjects = [];
 let subjectDetails = {};
 let userInstruments = [];
@@ -339,7 +350,7 @@ function saveSettingsFile() {
         "barsize": [600, 25],
         "animation": 0,
         "sounds": 0,
-        "themes": [/* Your themes array from the provided JSON */],
+        "themes": defaultThemes,
         "theme": 0,
         "lessontimes": {
             "monFri": [[8, 45, 25], [9, 10, 60], [10, 25, 60], [11, 30, 60], [12, 30, 55], [13, 25, 60], [14, 35, 60]],
