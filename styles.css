@@ -179,7 +179,7 @@ body {
   padding: 12px;
   background-color: var(--bg-light);
   color: var(--text);
-  border: 1px solid var(--highlight);
+  border: None;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
@@ -194,6 +194,10 @@ body {
 .submit-btn:active:not(:disabled) {
   transform: translateY(2px);
   box-shadow: none;
+}
+
+.submit-btn:hover {
+  border: 1px solid var(--highlight);
 }
 
 table {
