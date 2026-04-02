@@ -179,7 +179,7 @@ body {
   padding: 12px;
   background-color: var(--bg-light);
   color: var(--text);
-  border: None;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
