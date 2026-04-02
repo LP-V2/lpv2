@@ -177,13 +177,12 @@ body {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background-color: var(--acc);
+  background-color: var(--bg-light);
   color: var(--text);
-  border: none;
+  border: 1px solid var(--highlight);
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  box-shadow: 0 2px 0 0 var(--bg-light);
 }
 .submit-btn:disabled { 
   background-color: var(--bg-light);
