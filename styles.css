@@ -164,6 +164,7 @@ body {
   border: 1px solid var(--highlight); 
   border-radius: 4px; 
 }
+
 .subject-item {
   display: flex; 
   align-items: center; 
@@ -172,13 +173,15 @@ body {
   transition: background 0.2s; 
   cursor: pointer;
 }
+
 .subject-item:hover {
   background-color: var(--bg-light);
 }
+
 .subject-item input {
   margin-right: 12px;
-  transform: scale(1.2);
 }
+
 .submit-btn {
   margin-top: 20px;
   width: 100%;
