@@ -107,11 +107,15 @@ input[type="radio"]:hover {
 
 input[type="checkbox"]:active,
 input[type="radio"]:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
 }
 
 input[type="radio"] {
   border-radius: 50%;
+}
+
+input[type="radio"] {
+  border-radius: 5%;
 }
 
 input[type="checkbox"]::before {
@@ -120,7 +124,7 @@ input[type="checkbox"]::before {
   height: 0.65em;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--highlight); /* The color of the check */
+  box-shadow: inset 1em 1em var(--text); /* The color of the check */
 }
 
 input[type="checkbox"]:checked::before {
