@@ -25,7 +25,7 @@ body {
   padding: 0;
   background: var(--bg-dark);
   color: var(--text-muted);
-  font-family: sans-serif;
+  font-family: Lato, sans-serif;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -72,6 +72,10 @@ body {
   flex-direction: row;
   flex-grow: 1;
   overflow: hidden;
+}
+
+.icon {
+  padding: 0.5rem 0rem;
 }
 
 .tab button {
