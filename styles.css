@@ -94,7 +94,8 @@ body {
 }
 
 .tab button.active {
-  background-color: var(--acc);
+  background-color: var(--bg-light);
+  color: var(--acc);
 }
 
 .tab {
