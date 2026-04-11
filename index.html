@@ -20,11 +20,26 @@
   
   <div class="main-wrapper">
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'Subjects')" id="defaultOpen">Subjects</button>
-      <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">Lesson Colours</button>
-      <button class="tablinks" onclick="openTab(event, 'Timetable')">Timetable</button>
-      <button class="tablinks" onclick="openTab(event, 'Music Lessons')">Music Lessons</button>
-      <button class="tablinks" onclick="openTab(event, 'Download')">Download</button>
+      <button class="tablinks" onclick="openTab(event, 'Subjects')" id="defaultOpen">
+        <i data-lucide="list-checks"></i>
+        <span>Subjects</span>
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Lesson Colours')">
+        <i data-lucide="palette"></i>
+        <span>Lesson Colours</span>
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Timetable')">
+        <i data-lucide="calendar"></i>
+        <span>Timetable</span>
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Music Lessons')">
+        <i data-lucide="music"></i>
+        <span>Music Lessons</span>
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Download')">
+        <i data-lucide="download"></i>
+        <span>Download</span>
+      </button>
     </div>
     
     <div id="Subjects" class="tabcontent">
@@ -134,6 +149,7 @@
       </div>
     </div>
   </div>
-
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
