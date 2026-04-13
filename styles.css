@@ -47,11 +47,11 @@ body {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 15px; /* Space between logo and text */
+  gap: 15px;
 }
 
 .header-logo {
-  height: 35px; /* Adjust based on your favicon size */
+  height: 35px;
   width: auto;
 }
 
@@ -313,7 +313,7 @@ td {
 .timetable-select {
   background: var(--bg-dark);
   color: var(--text);
-  border: 1px solid var(--acc);
+  border: 1px solid var(--bg-light);
   padding: 5px;
   border-radius: 4px;
   width: 100%;
@@ -321,7 +321,12 @@ td {
 }
 
 .timetable-select:focus {
-  outline: 1px solid var(--highlight);
+  border-color: var(--highlight);
+  outline: none;
+}
+
+.timetable-select:hover {
+  background: var(--bg);
 }
 
 .timetable-input {
@@ -333,6 +338,10 @@ td {
   border-radius: 4px;
   width: 100%;
   font-size: 0.8rem;
+}
+
+.timetable-input:hover {
+  background: var(--bg);
 }
 
 .timetable-input:focus {
