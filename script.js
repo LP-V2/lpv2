@@ -129,7 +129,7 @@ function generateTimetable(targetId) {
 
             const teacherInput = document.createElement('input');
             teacherInput.type = 'text';
-            teacherInput.placeholder = 'TCH';
+            teacherInput.placeholder = 'Teacher';
             teacherInput.maxLength = 3;
             teacherInput.className = 'timetable-input';
 
