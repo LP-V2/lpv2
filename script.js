@@ -33,6 +33,11 @@ const defaultLessonColours = {
     "Chemistry": "#0000C0"
 };
 
+function collapseSidebar() {
+    const tab = document.getElementById('tab');
+    tab.style.width = "2%";
+}
+
 function updateColourPreferences() {
     const colourList = document.getElementById('colourList');
     if (!colourList) return;
