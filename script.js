@@ -38,17 +38,22 @@ let sidebar = true;
 function collapseSidebar() {
     const tab = document.getElementById('tab');
     const buttons = document.querySelectorAll('.tab button');
+    const icon = document.getElementById('collapsebutton');
     if (sidebar) {
+        icon.setAttribute('data-lucide', 'panel-left-open');
         tab.style.width = "2%";
         buttons.forEach(button => {
             button.style.display = 'none';
         });
     } else {
+        icon.setAttribute('data-lucide', 'panel-left-close');
         tab.style.width = "10%";
         buttons.forEach(button => {
             button.style.display = 'flex';
         });
     }
+    lucide.createIcons();
+    sidebar = !sidebar;
 }
 
 function updateColourPreferences() {
