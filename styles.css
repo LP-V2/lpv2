@@ -208,6 +208,11 @@ input[type="checkbox"]:checked {
   stroke-width: 2;
 }
 
+.collapsebutton:hover {
+  cursor: pointer;
+  fill: var(--highlight);
+}
+
 .tabcontent {
   flex-grow: 1;
   flex-direction: column;
