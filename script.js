@@ -33,9 +33,22 @@ const defaultLessonColours = {
     "Chemistry": "#0000C0"
 };
 
+let sidebar = true;
+
 function collapseSidebar() {
     const tab = document.getElementById('tab');
-    tab.style.width = "2%";
+    const buttons = document.querySelectorAll('.tab button');
+    if (sidebar) {
+        tab.style.width = "2%";
+        buttons.forEach(button => {
+            button.style.display = 'none';
+        });
+    } else {
+        tab.style.width = "10%";
+        buttons.forEach(button => {
+            button.style.display = 'flex';
+        });
+    }
 }
 
 function updateColourPreferences() {
