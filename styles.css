@@ -89,8 +89,8 @@ input[type="radio"] {
   margin: 0;
   font: inherit;
   color: currentColor;
-  width: 1em;
-  height: 1em;
+  width: 1.15em;
+  height: 1.15em;
   border: 0.1em solid currentColor;
   display: inline-grid;
   place-content: center;
@@ -99,10 +99,48 @@ input[type="radio"] {
   cursor: pointer;
 }
 
+input[type="checkbox"]::before,
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  pointer-events: none;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="radio"]::before {
+  background-color: var(--highlight);
+  border-radius: 50%;
+}
+
+input[type="checkbox"] {
+  border-radius: 0.15em;
+}
+
+input[type="checkbox"]::before {
+  background-color: var(--text); 
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: var(--highlight);
+  border-color: var(--highlight);
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  background-color: var(--text);
-  cursor: pointer;
+  filter: brightness(1.1);
 }
 
 input[type="checkbox"]:active,
@@ -110,54 +148,10 @@ input[type="radio"]:active {
   transform: scale(0.9);
 }
 
-input[type="radio"] {
-  border-radius: 50%;
-}
-
-input[type="radio"] {
-  border-radius: 5%;
-}
-
-input[type="checkbox"]::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--text); /* The color of the check */
-}
-
-input[type="checkbox"]:checked::before {
-  transform: scale(1);
-}
-
-input[type="radio"]::before {
-  content: "";
-  width: 0.5em;
-  height: 0.5em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  background-color: var(--highlight);
-}
-
-input[type="radio"]:checked::before {
-  transform: scale(1);
-}
-
 input[type="checkbox"]:focus-visible,
 input[type="radio"]:focus-visible {
   outline: max(2px, 0.1em) solid var(--highlight);
   outline-offset: 3px;
-}
-
-input[type="checkbox"]:checked {
-  background-color: var(--highlight);
-  border-color: var(--highlight);
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .tab button {
