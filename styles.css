@@ -210,7 +210,7 @@ input[type="checkbox"]:checked {
 
 .collapsebutton:hover {
   cursor: pointer;
-  fill: var(--highlight);
+  stroke: var(--highlight);
 }
 
 .tabcontent {
