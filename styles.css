@@ -194,7 +194,7 @@ input[type="radio"]:focus-visible {
   border-right: 1px solid var(--bg-light);
   background-color: var(--bg);
   overflow-y: auto;
-  transition: width 0.s ease-in-out;
+  transition: width 0.2s ease-in-out;
 }
 
 .tab.collapsed {
@@ -207,8 +207,8 @@ input[type="radio"]:focus-visible {
   right: 0.5em;
   padding: 0;
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
   stroke-width: 2;
 }
 
