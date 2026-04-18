@@ -46,6 +46,7 @@ function toggleTheme() {
         icon.setAttribute('data-lucide', 'sun');
         document.documentElement.removeAttribute('data-theme');
     }
+    lucide.createIcons();
 }
 
 function collapseSidebar() {
