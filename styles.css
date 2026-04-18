@@ -5,9 +5,19 @@
   --text: #ffffff;
   --text-muted: #eeeeee;
   --highlight: #3862f4;
-  --acc: #000080;
   --cancel: #ff4444;
   --cancel-hover: #cc0000;
+}
+
+[data-theme="light"] {
+  --bg-dark: #e0e0e0;
+  --bg: #f5f5f5;
+  --bg-light: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #555555;
+  --highlight: #2a52be;
+  --cancel: #d32f2f;
+  --cancel-hover: #b71c1c;
 }
 
 * {box-sizing: border-box}
