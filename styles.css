@@ -80,6 +80,8 @@ body {
 }
 
 .themebutton {
+  width: 1.25em;
+  height: 1.25em;
   padding: 0.5em;
   display: inline-block;
   width: 1.25em;
