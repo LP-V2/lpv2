@@ -52,6 +52,7 @@ body {
   justify-content: space-between;
   padding: 0 10px;
   flex-shrink: 0;
+  user-select: none;
 }
 
 .header-left {
@@ -80,14 +81,11 @@ body {
 }
 
 .themebutton {
-  width: 1.25em;
-  height: 1.25em;
-  padding: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
   display: inline-block;
-  width: 1.25em;
-  height: 1.25em;
   stroke-width: 2;
-  stroke: var(--text);
+  stroke: var(--text-muted);
 }
 
 .themebutton:hover {
