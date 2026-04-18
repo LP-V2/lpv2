@@ -34,6 +34,19 @@ const defaultLessonColours = {
 };
 
 let sidebar = true;
+let lightMode = false;
+
+function toggleTheme() {
+    const icon = document.getElementById('themebutton');
+    sidebar = !sidebar;
+    if (lightMode) {
+        icon.setAttribute('data-lucide', 'moon');
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        icon.setAttribute('data-lucide', 'sun');
+        document.documentElement.removeAttribute('data-theme');
+    }
+}
 
 function collapseSidebar() {
     const tab = document.getElementById('tab');
