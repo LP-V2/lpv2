@@ -38,7 +38,7 @@ let lightMode = false;
 
 function toggleTheme() {
     const icon = document.getElementById('themebutton');
-    sidebar = !sidebar;
+    lightMode = !lightMode;
     if (lightMode) {
         icon.setAttribute('data-lucide', 'moon');
         document.documentElement.setAttribute('data-theme', 'light');
