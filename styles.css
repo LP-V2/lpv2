@@ -72,6 +72,13 @@ body {
   font-size: 1.4rem;
 }
 
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .themebutton {
   padding: 0.5em;
   display: inline-block;
