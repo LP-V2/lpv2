@@ -225,7 +225,7 @@ input[type="radio"]:focus-visible {
 }
 
 .tab.collapsed {
-  width: 2%;
+  width: 2.25em;
 }
 
 .collapsebutton {
