@@ -436,3 +436,16 @@ document.addEventListener('DOMContentLoaded', () => {
         saveSettingsBtn.addEventListener('click', saveSettingsFile);
     }
 });
+const target = document.getElementById("zoom-target");
+let zoom = 1;
+
+window.addEventListener("wheel", (e) => {
+  if (e.ctrlKey) {
+    e.preventDefault(); // stop browser from zooming the whole page
+
+    zoom += e.deltaY * -0.001; // adjust zoom sensitivity
+    zoom = Math.min(Math.max(0.5, zoom), 3); // clamp between 0.5x and 3x
+
+    target.style.transform = `scale(${zoom})`;
+  }
+}, { passive: false });
