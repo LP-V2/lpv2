@@ -255,6 +255,8 @@ input[type="radio"]:focus-visible {
   height: 100%;
   border: None;
   overflow-y: auto;
+  transform-origin: top left;
+  transition: transform 0.1s ease-out;
 }
 
 .tabcontent[style*="display: flex"] {
