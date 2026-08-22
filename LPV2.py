@@ -2207,7 +2207,12 @@ class Apps:
             save_settings()
         
         if active:
-            week = "ab"[settings["week"]] # 0 = a, 1 = b
+            # week = "ab"[settings["week"]] # 0 = a, 1 = b (OUTDATED)
+            weekNum = time_now().strftime("%W")
+            week = "0bababa0babab00abababa0bababab000000abababa00bababa00"[weekNum] # Week a/b pattern
+            while week == 0:
+                weekNum -= 1
+                week = "0bababa0babab00abababa0bababab000000abababa00bababa00"[weekNum] # Week a/b pattern
             key = "timetable"
             timetable = Window(400, 275, "timetable")
             timetable.win.bind("<space>", lambda event : change_week("ba"["ab".index(week)]))
