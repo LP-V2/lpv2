@@ -1319,14 +1319,28 @@ def time_now():
         t = dt.datetime.now(uk)
     return t
 
-def check_period(hour, minute):
+def check_period(hour, minute, mode=""):
     weekday = now.strftime("%a")
     current = dt.time(hour, minute)
     lessons = monFri if weekday in ["Mon", "Fri"] else tueThu
-    for lesson in lessons:
+    indexMap = {False : # tueThu
+                {1 : 1,
+                 2 : 2,
+                 3 : 3,
+                 6 : 4,
+                 7 : 5}, # excludes reg, 3 3/4 and lunch
+                True : # monFri
+                {1 : 1,
+                 2 : 2,
+                 3 : 3,
+                 5 : 4,
+                 6 : 5}} # excludes reg and lunch
+    for i, lesson in enumerate(lessons):
         start = dt.time(lesson.startH, lesson.startM)
         end = dt.time(lesson.endH, lesson.endM)
         if start <= current < end:
+            if mode == "index" and hasattr(indexMap[weekday in ["Mon", "Fri"]], i):
+                return indexMap[i]
             return lesson
     
     return None
@@ -3326,6 +3340,44 @@ class Apps:
             @sio.event
             def download_error(data):
                 add_system(f"Error downloading {data['file']}: File could not be found")
+
+            @sio.event
+            def lesson_request(data):
+                target = data["from"]
+                weekNum = time_now().strftime("%W")
+                week = "0bababa0babab00abababa0bababab000000abababa00bababa00"[weekNum] # Week a/b pattern
+                if week == 0:
+                    lesson = "None"
+                    room = "None"
+                    teacher = "None"
+                else:
+                    lessons = settings[f"timetable-{week}"]
+                    rooms = settings[f"rooms-{week}"]
+                    teachers = settings[f"teachers-{week}"]
+                    now = dt.datetime.now()
+                    period = check_period(now.hour, now.minute, mode="index")
+                    if period:
+                        lesson = lessons[period - 1]
+                        room = rooms[period - 1]
+                        teacher = teachers[period - 1]
+                    else:
+                        lesson = "None"
+                        room = "None"
+                        teacher = "None"
+                
+                emit("lesson", target=target, lesson=lesson, room=room, teacher=teacher})
+
+            @sio.event
+            def lesson(data):
+                lesson = data["lesson"]
+                room = data["room"]
+                teacher = data["teacher"]
+                add_system(f"{lesson} | {room} | {teacher}")
+
+            @sio.event
+            def request_failed(data):
+                target = data.get("to", "Unknown")
+                add_system(f"{target} is not online")
             
             @sio.event
             def disconnect(*args):
@@ -3436,6 +3488,12 @@ class Apps:
                 elif text == "/files":
                     emit("files", **{})
                     return stop()
+                elif text.startswith("/lesson"):
+                    lessonMessage = text.split()
+                    if len(lessonMessage) == 2:
+                        emit("lesson_request", **{"from" : username, "target" : lessonMessage[1]})
+                    else:
+                        add_system("USAGE: /lesson <target>")
                 elif len(findall("@[0-2][0-9]:[0-5][0-9]:[0-5][0-9]", text)) == 1: # reply
                     emit("reply", room=current_room, timestamp=text[1:9])
                 elif len(findall("@[0-5][0-9]:[0-5][0-9]", text)) == 1: # short reply
